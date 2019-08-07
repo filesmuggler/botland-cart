@@ -10,11 +10,20 @@ function listenForClicks() {
         /**
         * Get content of the cart.
         */
-        function shopify(tabs) {
+        function shopifyCsv(tabs) {
             browser.tabs.sendMessage(tabs[0].id, {
-                command: "shopify"
+                command: "shopify-csv",
             });
         }
+
+        /**
+        * Get content of the cart.
+        */
+       function shopifyXlsx(tabs) {
+        browser.tabs.sendMessage(tabs[0].id, {
+            command: "shopify-xlsx",
+        });
+    }
 
         /**
         * Share cart with a friend.
@@ -36,9 +45,14 @@ function listenForClicks() {
         * Get the active tab,
         * then call "shopify()" or "share()" as appropriate.
         */
-        if (e.target.classList.contains("save")) {
+        if (e.target.classList.contains("save-csv")) {
             browser.tabs.query({ active: true, currentWindow: true })
-                .then(shopify)
+                .then(shopifyCsv)
+                .catch(reportError);
+        }
+        else if (e.target.classList.contains("save-excel")) {
+            browser.tabs.query({ active: true, currentWindow: true })
+                .then(shopifyXlsx)
                 .catch(reportError);
         }
         else if (e.target.classList.contains("share")) {
@@ -54,8 +68,6 @@ function listenForClicks() {
 * Display the popup's error message, and hide the normal UI.
 */
 function reportExecuteScriptError(error) {
-    document.querySelector("#popup-content").classList.add("hidden");
-    document.querySelector("#error-content").classList.remove("hidden");
     console.error(`Failed to execute shopify content script: ${error.message}`);
 }
 

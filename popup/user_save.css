@@ -14,18 +14,26 @@ html, body {
     cursor: pointer;
   }
   
-  .save:hover {
-    background-color: #CFF2F2;
+  .save-csv:hover {
+    background-color: yellow;
   }
   
-  .save {
-    background-color: #E5F2F2;
+  .save-csv {
+    background-color: red;
+  }
+
+  .save-excel:hover {
+    background-color: yellow;
+  }
+  
+  .save-excel {
+    background-color: red;
   }
   
   .share {
-    background-color: #FBFBC9;
+    background-color: red;
   }
   
   .share:hover {
-    background-color: #EAEA9D;
+    background-color: greenyellow;
   }
