@@ -1,0 +1,23 @@
+{
+
+    "manifest_version": 2,
+    "name": "Botland cart",
+    "version": "1.0",
+  
+    "description": "saves content of cart to csv.",
+    "homepage_url": "https://github.com/filesmuggler/botland-cart",
+    "icons": {
+      "32": "icons/shopping-cart-32.png"
+    },
+  
+    "permissions": [
+      "activeTab"
+    ],
+  
+    "browser_action": {
+      "default_icon": "icons/shopping-cart-32.png",
+      "default_title": "Shopping saver",
+      "default_popup": "popup/user_save.html"
+    }
+  
+  }
