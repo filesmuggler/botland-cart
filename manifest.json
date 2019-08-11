@@ -18,6 +18,12 @@
       "default_icon": "icons/shopping-cart-32.png",
       "default_title": "Shopping saver",
       "default_popup": "popup/user_save.html"
-    }
+    },
+
+    "content_scripts": [
+      {
+        "matches": ["*://*.botland.com.pl/*"]
+      }
+    ]
   
   }
